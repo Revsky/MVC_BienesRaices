@@ -1,0 +1,45 @@
+.no-webp .inicio{
+    background-image: url(../../../build/img/header.jpg);
+}
+.webp .inicio{
+    background-image: url(../../../build/img/header.webp);
+}
+.header{
+    background-color: $grisOscuro;
+    padding: 1rem 0 3rem 0;
+
+    &.inicio{
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media (min-width: 768px ) {
+            min-height: 70rem;
+        }
+
+        .contenido-header{
+            /* Agregamos este media para que el contenido-header tome todo el espacio de inicio y pueda posiciónar los elementos */
+            @media (min-width: 768px ) {
+                min-height: 70rem;
+            }
+        }
+    }
+}
+
+.contenido-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    a:hover{
+        color: $verde;
+    }
+    
+
+    h1{
+        text-align: justify;
+        color: $blanco;
+        font-weight: $bold;
+        line-height: 2;
+        max-width: 60rem;
+    }
+}

@@ -1,0 +1,49 @@
+@media (min-width: 768px ) {
+    .seccion-inferior{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+.entrada-blog{
+    margin-bottom: 2rem;
+    @media (min-width: 768px ) {
+        display: grid;
+        grid-template-columns:1fr 2fr ;
+        column-gap: 2rem;
+    }
+    &:last-of-type{
+        margin-bottom: 0;
+    }
+}
+.informacion-meta{
+    span{
+        color: $amarillo;
+    }  
+}
+.texto-entrada{
+    a{
+        color: black;
+        /* Si el elemento tiene un dsiplay inline-block debemos cambiarlo a block para que aplique margenes, como en este caso los enlaces */
+        margin-top: 5rem;
+        display: block;
+        @media (min-width: 768px ) {
+            margin-top: 0;
+        }
+    }
+    h4{
+        margin: 0;
+        line-height: 1.4;
+        /* Creamos la barra verde debajo de el H4 */
+        &::after{
+            content: '';
+            display: block;
+            width: 15rem;
+            height: .5rem;
+            background-color: $verde;
+            margin-top: 1rem;
+        }
+    }
+     
+}

@@ -1,0 +1,89 @@
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton{
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        
+        /* La propiedad de filter nos permite agregar diversos filtros a nuestro código, en este caso usamos invert() que permite invertir el color  */
+        filter: invert(100%);
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            margin-top: 0;
+        }
+    }
+}
+
+.barra{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 3rem;
+
+   @include tablet{
+       flex-direction: row;
+       align-items: flex-end;
+       justify-content: space-between;
+   }
+}
+
+.navegacion{
+
+    /* usamos la propiedad de transition para realizar animaciónes del menu de amburguesa cambiamos el display por visibitility ya que display no se puede animar */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s ease-in-out, opacity 0.3s linear, height 0.5s;
+    height: 0;
+
+    @include tablet{
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    a{
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include tablet{
+            margin-right: 2rem;
+
+            &:last-of-type{
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/* Menú de hamburguesa */
+
+.mobile-menu{
+    @media (min-width: 768px ) {
+        display: none;
+    }
+    img{
+        width: 5rem;
+    }
+}
+
+.mostrar{
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
