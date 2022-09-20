@@ -1,6 +1,6 @@
 <?php 
 
-namespace App;
+namespace Model;
 
 /* 
 ** Ahora nuesta clase extiende de ActiveRecord

@@ -15,6 +15,10 @@ class ComposerStaticInit35e029092373858c8051fed1fa9b1964
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'M' => 
+        array (
+            'Model\\' => 6,
+        ),
         'I' => 
         array (
             'Intervention\\Image\\' => 19,
@@ -22,10 +26,6 @@ class ComposerStaticInit35e029092373858c8051fed1fa9b1964
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
-        ),
-        'A' => 
-        array (
-            'App\\' => 4,
         ),
     );
 
@@ -35,6 +35,10 @@ class ComposerStaticInit35e029092373858c8051fed1fa9b1964
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
@@ -42,10 +46,6 @@ class ComposerStaticInit35e029092373858c8051fed1fa9b1964
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/clases',
         ),
     );
 

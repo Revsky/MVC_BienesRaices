@@ -11,7 +11,7 @@
     /* 
     *** Cambiamos la referencia a ActiveRecord ya que ahora es la clase principal donde tiene almacenada la instancia de la base de datos
     */
-    use App\ActiveRecord;
+    use Model\ActiveRecord;
     ActiveRecord::setDB($db);
 
 ?>

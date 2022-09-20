@@ -1,6 +1,6 @@
 <?php 
 
-namespace App;
+namespace Model;
 
 /* 
 ** Ahora esta sera nuestra clase principal

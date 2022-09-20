@@ -1,6 +1,6 @@
 <?php 
 
-namespace App;
+namespace Model;
 
 /* 
 ** Creamos una nueva clase para trabajar con los vendedores
