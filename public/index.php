@@ -7,4 +7,6 @@
     use MVC\Router;
 
     $router = new Router();
+    $router->get('/nosotros','funcion_nosotros');
+    $router->comprobarRutas(); 
 ?>
