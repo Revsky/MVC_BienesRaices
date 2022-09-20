@@ -26,6 +26,9 @@
             }
             if($fn){
                 // La URL existe
+                /* 
+                ** Este método permite llamar a una función que desconocemos al pasar el nombre de la función como su argumento y el contexto de la misma que en este caso es $this(el cual indica todas las rutas del archivo router.php)
+                */
                 call_user_func($fn,$this);
 
             }else{
