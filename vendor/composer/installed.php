@@ -3,7 +3,7 @@
         'name' => 'angel/poo_bienes-raices',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ec7f0149cf1b478156dee99ec61581292fb45608',
+        'reference' => '8630f0e301462d1fce02196b13bc531d1fe26f20',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'angel/poo_bienes-raices' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ec7f0149cf1b478156dee99ec61581292fb45608',
+            'reference' => '8630f0e301462d1fce02196b13bc531d1fe26f20',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
