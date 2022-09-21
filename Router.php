@@ -39,6 +39,13 @@
         // Muestra una vista
         public function render($view)
         {
-            include __DIR__ . "/views/$view.php";
+            ob_start(); // Inica el almacenamiento en memoria del código que este abajo
+            include __DIR__ . "/views/$view.php"; // Incluimos el view que almacenara
+            $contenido = ob_get_clean(); // Limpia la memoria para que no se almacene y colapse el servidor
+            include __DIR__ . '/views/layout.php'; // Incluimos el layput que servira de base para todos
+
+            /* 
+            ** sin la función ob_start no podriamos reutilizar la vista con el código de layput.php ya que el método ob_start almacena la informaicón de la vista que deseamos mostrar y despues en contenido liberamos esa informaicón ya que cumpluo con su proposito
+            */
         }
     }
