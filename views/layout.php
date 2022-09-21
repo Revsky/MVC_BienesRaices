@@ -51,7 +51,8 @@
         </div>
     </header>
 
-    <?php $contenido?>
+    <!-- Usamos la variable $contenido que definimos en el Router.php este módificara el contenido del main del HTML -->
+    <?php echo $contenido?>
                             
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">

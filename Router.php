@@ -37,8 +37,16 @@
         }
 
         // Muestra una vista
-        public function render($view)
+        public function render($view,$datos=[])
         {
+
+            /* 
+            ** Usamos $$key para que esa variable tome el nombre de un String que viene en el arreglo como llave para convertirla en una variable
+            */
+            foreach($datos as $key=>$value){
+                $$key = $value;
+            }
+
             ob_start(); // Inica el almacenamiento en memoria del código que este abajo
             include __DIR__ . "/views/$view.php"; // Incluimos el view que almacenara
             $contenido = ob_get_clean(); // Limpia la memoria para que no se almacene y colapse el servidor
