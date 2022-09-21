@@ -6,12 +6,14 @@ use MVC\Router;
 use Model\Propiedad;
 use Model\Vendedor;
 
+use Intervention\Image\ImageManagerStatic as ImageInt;
+
 class PropiedadController{
 
     public static function index(Router $router)
     {
         $propiedades = Propiedad::all();
-        $resultado = null;
+        $resultado = $_GET['resultado'] ?? null;
         /* 
         ** Mandamos en un arreglo el llave=>valor de las variables que crearemos para esa vista, estas nos ayudaran a enviar parametros para mostrar
 
@@ -28,13 +30,50 @@ class PropiedadController{
 
         $propiedad = new Propiedad;
         $vendedores = Vendedor::all();
+        $errores = Propiedad::getErrores();
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            // crea una nueva instancoia
+            $propiedad = new Propiedad($_POST['propiedad']);
+
             
+            // Generar nombre unico
+            $nombreImagen = md5(uniqid(rand(),true)).".jpg";
+
+            // Set imagen
+            // Realiza un resize con intervetion
+
+        
+            if($_FILES['propiedad']['tmp_name']['imagen']){
+                $image = ImageInt::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800,600);
+                $propiedad->setImagen($nombreImagen);
+            }
+            
+        
+            $errores = $propiedad->validar();
+
+            // Revisar que el arreglo de errores este vacio
+            if(empty($errores)){
+                /* SUBIDA DE ARCHIVOS */
+
+                // crear una carpeta
+                if(!is_dir(CARPETA_IMAGENES)){
+                    mkdir(CARPETA_IMAGENES); // <- Crear la carpeta
+                }
+
+                // Guarda la imagen en servidor
+                
+                $image->save(CARPETA_IMAGENES.$nombreImagen);
+
+                $resultado = $propiedad->guardar();
+
+            
+            }
         }
         $router->render('propiedades/crear',[
             'propiedad' => $propiedad,
             'vendedores' => $vendedores,
+            'errores' => $errores,
         ]);
     }
 

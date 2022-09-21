@@ -3,7 +3,8 @@
     /* Debemos usar __DIR__ para que tome la ruta completa y no relativa par aque no nos marque algpun error */
     define('TEMPLATES_URL',__DIR__.'/templates');
     define('FUNCIONES_URL',__DIR__.'funciones.php');
-    define('CARPETA_IMAGENES',__DIR__.'/../imagenes/');
+    define('CARPETA_IMAGENES',$_SERVER['DOCUMENT_ROOT']. '/imagenes/');
+
     function incluirTemplate( $nombre, $inicio = false){
         include  TEMPLATES_URL."/${nombre}.php";
     }
