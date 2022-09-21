@@ -17,8 +17,14 @@ use Model\Propiedad;
     ** PropiedadController::class <- Define desde que clase viene desde ese namespace que en este caso es la clase PropiedadController, despues asignamos el método de esa clase que vamos a llamar el cual es index
     */
     $router->get('/admin',[PropiedadController::class,'index']);
+
     $router->get('/propiedades/crear',[PropiedadController::class,'crear']);
-    $router->get('/propiedades/actualizar',[PropiedadController::class,'update']);
+    $router->post('/propiedades/crear',[PropiedadController::class,'crear']);
+
+    $router->get('/propiedades/actualizar',[PropiedadController::class,'actualizar']);
+    $router->post('/propiedades/actualizar',[PropiedadController::class,'actualizar']);
+    
+    $router->post('/propiedades/eliminar',[PropiedadController::class,'eliminar']);
 
 
     $router->comprobarRutas(); 

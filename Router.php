@@ -11,6 +11,10 @@
         {
             $this->rutasGET[$url] = $fn;
         }
+        public function post($url, $fn)
+        {
+            $this->rutasPOST[$url] = $fn;
+        }
 
         /* 
         ** Comprobara las rutas de la pagina web para que exista el archivo y ademas el tipo de respuesta GET o POST para garantizar el funcionamiento de la web
@@ -23,7 +27,11 @@
             if($metodo === 'GET'){
                 $fn = $this->rutasGET[$urlActual] ?? null;
                 
+            }else{
+                
+                $fn = $this->rutasPOST[$urlActual] ?? null;
             }
+
             if($fn){
                 // La URL existe
                 /* 
