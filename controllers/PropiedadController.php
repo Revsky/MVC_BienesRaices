@@ -77,8 +77,50 @@ class PropiedadController{
         ]);
     }
 
-    public static function actualizar()
+    public static function actualizar(Router $router)
     {
-        echo "crear";
+        $id = validarORedireccionar('/admin');
+
+        $propiedad = Propiedad::find($id);
+        $errores = Propiedad::getErrores();
+        $vendedores = Vendedor::all();
+
+        // Método POST para actualziar
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            //Asignar los atributos 
+            $args = $_POST['propiedad'];
+    
+            $propiedad->sincronizar($args);
+    
+            // Validacion 
+            $errores = $propiedad->validar();
+    
+            // Generar nombre unico
+            $nombreImagen = md5(uniqid(rand(),true)).".jpg";
+    
+            // Subida de archivos
+            if($_FILES['propiedad']['tmp_name']['imagen']){
+                $image = ImageInt::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800,600);
+                $propiedad->setImagen($nombreImagen);
+            }
+            
+            if(empty($errores)){
+    
+                // Almacenar la imagen
+                if($_FILES['propiedad']['tmp_name']['imagen']){
+       
+                    $image->save(CARPETA_IMAGENES.$nombreImagen);
+                }   
+                $propiedad->guardar();
+            }
+    
+        }    
+
+        $router->render('/propiedades/actualizar',[
+            'propiedad' => $propiedad,
+            'errores' => $errores,
+            'vendedores' => $vendedores,
+        ]);
     }
 }
