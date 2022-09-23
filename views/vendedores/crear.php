@@ -13,7 +13,7 @@
 
         <!-- debemos inicar el enctype para que podamos obtener información para subir archivos -->
 
-    <form class="formulario" method="POST">
+    <form class="formulario" method="POST" action="/vendedores/crear">
         
         <?php include 'formulario.php'?>
 
