@@ -8,7 +8,6 @@
     use Controllers\PropiedadController;
     use Controllers\VendedorController;
     use Controllers\PaginasController;
-use FFI\ParserException;
 
     $router = new Router();
 
@@ -50,7 +49,7 @@ use FFI\ParserException;
     $router->get('/blog',[PaginasController::class,'blog']);
     $router->get('/entrada',[PaginasController::class,'entrada']);
     $router->get('/contacto',[PaginasController::class,'contacto']);
-    $router->post('/constacto',[PaginasController::class,'contacto']);/* <-- Permitira enviar emails */
+    $router->post('/contacto',[PaginasController::class,'contacto']);/* <-- Permitira enviar emails */
 
 
     $router->comprobarRutas(); 
