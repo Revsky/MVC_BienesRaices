@@ -11,8 +11,6 @@
         }
     ?>
 
-    
-
     <a href="/propiedades/crear" class="boton boton-verde">Nueva Propiedad</a>
     <a href="/admin/vendedores/crear.php" class="boton boton-amarillo">Nuevo Vendedor</a>
 
@@ -57,4 +55,38 @@
         </tbody>
     </table>
 
+    <h2>Vendedores</h2>
+        
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody><!-- Mostrar los Resultados -->
+            <?php foreach( $vendedores as $vendedor ): ?>
+            <tr>
+                <td><?php echo $vendedor->id ?></td>
+                <td><?php echo $vendedor->nombre ?></td>
+                
+                <td><?php echo $vendedor->telefono?></td>
+                
+                <td>
+                    <form method="POST" class="w-100">
+
+                        <!-- Creamos un input que no se ve -->
+                        <input type="hidden" name="id" value=<?php echo $vendedor->id ?>>
+                        <!-- Usamos este input para determinar si es un vendedor o propiedad -->
+                        <input type="hidden" name="tipo" value="vendedor">
+                        <input type="submit" class="boton-rojo-block" value="Eliminar">
+                    </form>
+                    <a href="admin/vendedores/actualizar.php?id=<?php echo $vendedor->id ?>" class="boton-verde-block">Actualizar</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </main>
