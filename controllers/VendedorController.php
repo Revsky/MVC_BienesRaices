@@ -32,9 +32,40 @@ class VendedorController{
         ]);
     }
 
-    public static function actualizar( )
+    public static function actualizar( Router $router)
     {
-        echo "actualizar Vendedor";
+        $errores = Vendedor::getErrores();
+        $id = validarORedireccionar('/admin');
+
+        $vendedor = Vendedor::find($id);
+
+        if(!$id){
+            header('Location: /admin');
+        }
+    
+        // Obtener el arreglo del vendedor desde la base de datos
+        $vendedor = Vendedor::find($id);
+    
+        $errores = Vendedor::getErrores();
+    
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+            // sincronizar los valores
+            $args = $_POST['vendedor'];
+            // sincronizar objeto en memoria con lo que el usuario cambio
+            $vendedor->sincronizar($args);
+            // Validación
+            $errores = $vendedor->validar();
+    
+            if(empty($errores)){
+                $vendedor->guardar();
+            }
+        }
+
+        $router->render('vendedores/actualizar',[
+            'errores'=>$errores,
+            'vendedor'=>$vendedor,
+        ]);
     }
 
     public static function eliminar( )
