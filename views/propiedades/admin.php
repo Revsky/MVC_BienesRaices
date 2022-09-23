@@ -43,7 +43,7 @@
                     ?>
                 </td>
                     <td>
-                    <form method="POST" class="w-100">
+                    <form method="POST" class="w-100" action="/propiedades/eliminar">
 
                         <!-- Creamos un input que no se ve -->
                         <input type="hidden" name="id" value=<?php echo $propiedad->id ?>>
