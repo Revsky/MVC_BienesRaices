@@ -13,7 +13,8 @@
 
         <!-- debemos inicar el enctype para que podamos obtener información para subir archivos -->
 
-    <form class="formulario" method="POST" action="/vendedores/actualizar">
+        <!-- No incluimos el action ya que si no cambia el id del vendedor y no actualiza lo daros -->
+    <form class="formulario" method="POST">
         
         <?php include 'formulario.php'?>
 
