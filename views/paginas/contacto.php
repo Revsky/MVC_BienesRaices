@@ -1,6 +1,12 @@
 <main class="contenedor seccion"> 
     <h1>Contacto</h1>
 
+    <?php 
+        if($mensaje){
+            echo "<p class='alerta exito'>".$mensaje."</p>";
+        }
+    ?>
+
     <picture>
         <source srcset="build/img/destacada3.webp" type="image/webp">
         <source srcset="build/img/destacada3.jpg" type="image/jpeg">
