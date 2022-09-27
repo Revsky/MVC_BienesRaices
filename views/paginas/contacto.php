@@ -14,13 +14,13 @@
             <legend>Información personal</legend>
 
             <label for="nombre">Nombre:</label>
-            <input id="nombre" type="text" placeholder="Tu nombre:" name="contacto[nombre]" required>
+            <input id="nombre" type="text" placeholder="Tu nombre:" name="contacto[nombre]" >
 
             <label for="email">E-Mail:</label>
-            <input id="email" type="email" placeholder="correo@correo.com" name="contacto[email]" required>
+            <input id="email" type="email" placeholder="correo@correo.com" name="contacto[email]" >
 
             <label for="telefono">Telefono:</label>
-            <input id="telefono" type="tel" placeholder="(+52)" name="contacto[telefono]"  required>
+            <input id="telefono" type="tel" placeholder="(+52)" name="contacto[telefono]"  >
 
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" cols="30" rows="10" name="contacto[mensaje]"></textarea>
@@ -37,7 +37,7 @@
             </select>
 
             <label for="presupuesto">Precio o Presupuesto:</label>
-            <input id="presupuesto" type="number" placeholder="Tu precio" name="contacto[precio]" required>
+            <input id="presupuesto" type="number" placeholder="Tu precio" name="contacto[precio]" >
             
         </fieldset>
 
@@ -49,10 +49,10 @@
             <div class="form-contacto">
                 <!-- Para que podamos seleccionar solo un radio button deben de tener el mismo nombre en el paraemtro name -->
                 <label for="contactar-telefono">Telefono:</label>
-                <input name="contacto" type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]">
+                <input  type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]">
 
                 <label for="contactar-email">Email:</label>
-                <input name="contacto" type="radio" value="email" id="contactar-email" name="contacto[contacto]">
+                <input  type="radio" value="email" id="contactar-email" name="contacto[contacto]">
             </div>
 
             <p>Si eligio telefono, elija la fecha y hora para ser contactado</p>

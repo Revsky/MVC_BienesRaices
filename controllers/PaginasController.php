@@ -59,6 +59,10 @@ class PaginasController{
     {
         
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+
+           
+            $respuestas = $_POST['contacto'];
             
             // Crear una instancia de PHPMailer
             $mail = new PHPMailer();
@@ -82,7 +86,20 @@ class PaginasController{
             $mail->CharSet = 'UTF-8';
 
             // Definir contenido
-            $contenido = '<html><p>Tienes un nuevo mensaje</p></html>';
+            $contenido = '<html>';
+            $contenido .= '<p>Tienes un nuevo mensaje</p>';
+            $contenido .= '<p>Nombre: '.$respuestas['nombre'].'</p>';
+            $contenido .= '<p>Email: '.$respuestas['email'].'</p>';
+            $contenido .= '<p>Telefono: '.$respuestas['telefono'].'</p>';
+            $contenido .= '<p>Mensaje: '.$respuestas['mensaje'].'</p>';
+            $contenido .= '<p>Vende o compra: '.$respuestas['tipo'].'</p>';
+            $contenido .= '<p>Presupuesto: $'.$respuestas['precio'].'</p>';
+            $contenido .= '<p>Prefiere ser contactado por: '.$respuestas['contacto'].'</p>';
+            $contenido .= '<p>Fecha: '.$respuestas['fecha'].'</p>';
+            $contenido .= '<p>Hora: '.$respuestas['hora'].'</p>';
+            $contenido .= '</html>';
+
+
             $mail->Body = $contenido;
             $mail->AltBody = "Esto es texto sin HTML"; //<- Esto es para quien no tiene soporte para HTML en correo
 
